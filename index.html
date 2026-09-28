@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice Up For Voiceless</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: {
+              50: '#FAF8F5',
+              100: '#F5E6D3',
+              200: '#E8D8C4',
+              300: '#D8C3A5',
+              800: '#5C4033',
+              900: '#3C2A21',
+            }
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #3C2A21;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .glass-card {
+      background: rgba(245, 230, 211, 0.45);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(216, 195, 165, 0.5);
+    }
+
+    /* Transition animations */
+    #splash-screen {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    #main-content {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .hidden-splash {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+
+    .hidden-content {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative overflow-x-hidden">
+
+  <!-- ========================================== -->
+  <!-- 1. SPLASH SCREEN (LANDING)                -->
+  <!-- ========================================== -->
+  <section id="splash-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center p-6 text-center bg-[#FAF8F5]">
+    <div class="max-w-2xl mx-auto space-y-8">
+      <div class="inline-block p-3 rounded-full bg-[#F5E6D3] text-[#3C2A21] mb-2 shadow-sm">
+        <i class="fa-solid fa-[#fa-heart-pulse] fa-bullhorn text-2xl"></i>
+      </div>
+      
+      <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#3C2A21] leading-tight">
+        Voice Up For Voiceless
+      </h1>
+      
+      <p class="text-lg sm:text-xl text-[#5C4033] max-w-lg mx-auto font-light italic">
+        "Giving a voice to those who need it most."
+      </p>
+
+      <div class="pt-6">
+        <button id="enter-btn" onclick="openWebsite()" class="group relative inline-flex items-center gap-3 px-10 py-4 text-lg font-semibold tracking-wide text-[#FAF8F5] bg-[#3C2A21] rounded-full shadow-lg hover:bg-[#5C4033] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+          <span>ENTER</span>
+          <i class="fa-solid fa-[#fa-arrow-right] text-sm group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- 2. MAIN WEBSITE CONTENT                    -->
+  <!-- ========================================== -->
+  <main id="main-content" class="hidden-content min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-16">
+
+    <!-- Header Navigation Bar -->
+    <header class="flex items-center justify-between pb-6 border-b border-[#E8D8C4]">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-[#E8D8C4] flex items-center justify-center text-[#3C2A21] font-bold">
+          VV
+        </div>
+        <span class="font-serif text-xl font-bold tracking-tight text-[#3C2A21]">Voice Up For Voiceless</span>
+      </div>
+
+      <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-[#3C2A21] bg-[#F5E6D3] hover:bg-[#E8D8C4] rounded-full transition-colors">
+        <i class="fa-brands fa-instagram text-lg"></i>
+        <span>Follow Us</span>
+      </a>
+    </header>
+
+
+    <!-- Instagram Account Bio / Profile Section -->
+    <section class="glass-card rounded-3xl p-8 sm:p-10 shadow-sm border border-[#E8D8C4] text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row items-center gap-8">
+        
+        <!-- Profile Avatar Placeholder -->
+        <div class="relative group">
+          <div class="w-32 h-32 rounded-full overflow-hidden ring-4 ring-[#E8D8C4] p-1 bg-[#FAF8F5]">
+            <!-- EDIT YOUR PROFILE PICTURE HERE: Replace src below -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Profile Picture" class="w-full h-full object-cover rounded-full">
+          </div>
+        </div>
+
+        <!-- Account Info -->
+        <div class="flex-1 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#3C2A21]">Voice Up For Voiceless</h2>
+              <p class="text-sm font-medium text-[#5C4033] font-mono mt-0.5">@voiceupforvoiceless</p>
+            </div>
+            
+            <a href="https://instagram.com" target="_blank" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#3C2A21] text-[#FAF8F5] rounded-xl text-sm font-semibold hover:bg-[#5C4033] transition-colors shadow-sm">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Visit Instagram</span>
+            </a>
+          </div>
+
+          <!-- Account Description / Bio -->
+          <!-- EDIT YOUR INSTAGRAM BIO HERE -->
+          <p class="text-[#5C4033] text-base leading-relaxed">
+            Welcome to our official page. We stand to amplify awareness, share real stories, and build a supportive community for animal welfare and social causes. Join us in making a real difference together.
+          </p>
+
+          <!-- Account Quick Stats -->
+          <!-- EDIT YOUR STATS HERE -->
+          <div class="flex items-center justify-center sm:justify-start gap-8 pt-2 border-t border-[#E8D8C4]/60">
+            <div>
+              <span class="block text-xl font-bold text-[#3C2A21]">120+</span>
+              <span class="text-xs text-[#5C4033] uppercase tracking-wider">Posts</span>
+            </div>
+            <div>
+              <span class="block text-xl font-bold text-[#3C2A21]">15.4K</span>
+              <span class="text-xs text-[#5C4033] uppercase tracking-wider">Followers</span>
+            </div>
+            <div>
+              <span class="block text-xl font-bold text-[#3C2A21]">450+</span>
+              <span class="text-xs text-[#5C4033] uppercase tracking-wider">Following</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Recent Instagram Posts Section -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between">
+        <h3 class="font-serif text-2xl font-bold text-[#3C2A21]">Recent Posts</h3>
+        <span class="text-xs text-[#5C4033] bg-[#F5E6D3] px-3 py-1 rounded-full font-medium">Updated Recently</span>
+      </div>
+
+      <!-- Grid Container for Posts -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- POST CARD 1 -->
+        <!-- EDIT POST 1 LINK, IMAGE & DESCRIPTION -->
+        <div class="bg-[#F5E6D3]/50 rounded-2xl overflow-hidden border border-[#E8D8C4] hover:shadow-md transition-all duration-300 flex flex-col">
+          <div class="aspect-square bg-[#E8D8C4] overflow-hidden relative group">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600" alt="Post 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-sm text-[#5C4033] line-clamp-3">
+              "Every silent voice deserves to be heard. Today we highlight our latest community drive."
+            </p>
+            <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[#3C2A21] hover:text-[#5C4033]">
+              <span>VIEW POST ON INSTAGRAM</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- POST CARD 2 -->
+        <!-- EDIT POST 2 LINK, IMAGE & DESCRIPTION -->
+        <div class="bg-[#F5E6D3]/50 rounded-2xl overflow-hidden border border-[#E8D8C4] hover:shadow-md transition-all duration-300 flex flex-col">
+          <div class="aspect-square bg-[#E8D8C4] overflow-hidden relative group">
+            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600" alt="Post 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-sm text-[#5C4033] line-clamp-3">
+              "Building shelters and offering love to those who cannot ask for it themselves. Read more!"
+            </p>
+            <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[#3C2A21] hover:text-[#5C4033]">
+              <span>VIEW POST ON INSTAGRAM</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- POST CARD 3 -->
+        <!-- EDIT POST 3 LINK, IMAGE & DESCRIPTION -->
+        <div class="bg-[#F5E6D3]/50 rounded-2xl overflow-hidden border border-[#E8D8C4] hover:shadow-md transition-all duration-300 flex flex-col">
+          <div class="aspect-square bg-[#E8D8C4] overflow-hidden relative group">
+            <img src="https://images.unsplash.com/photo-1450778869186-3997d5a518d6?auto=format&fit=crop&q=80&w=600" alt="Post 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <p class="text-sm text-[#5C4033] line-clamp-3">
+              "Thank you to all our supporters and volunteers. Here is a summary of this week's impact."
+            </p>
+            <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-[#3C2A21] hover:text-[#5C4033]">
+              <span>VIEW POST ON INSTAGRAM</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="text-center pt-8 border-t border-[#E8D8C4] text-xs text-[#5C4033]">
+      <p>© Voice Up For Voiceless. All rights reserved.</p>
+    </footer>
+
+  </main>
+
+
+  <!-- JavaScript for Entry Screen Transition -->
+  <script>
+    function openWebsite() {
+      const splash = document.getElementById('splash-screen');
+      const main = document.getElementById('main-content');
+
+      // Hide splash with fade
+      splash.classList.add('hidden-splash');
+
+      setTimeout(() => {
+        splash.style.display = 'none';
+        
+        // Show main content
+        main.style.display = 'block';
+        setTimeout(() => {
+          main.classList.remove('hidden-content');
+        }, 50);
+      }, 700);
+    }
+  </script>
+</body>
+</html>
